@@ -52,6 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
             final totalDay = jsonResponse['total_day'] ?? '';
             final totalDayLeft = jsonResponse['total_day_left'] ?? '';
             final totalDayUsed = jsonResponse['total_day_used'] ?? '';
+            double height = AppBar().preferredSize.height;
 
             return Stack(
               children: [
@@ -60,14 +61,20 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: 150,
                   color: const Color.fromARGB(100, 203, 236, 255),
                 ),
-                Align(
+                SingleChildScrollView(
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Card(
+                        SizedBox(
+                          height: height,
+                        ),
+                        Card(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15.0),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(16.0),
                             child: SizedBox(
                               width: double.infinity,
                               child: Column(
@@ -75,7 +82,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  const Text('My holiday'),
+                                  const Text(
+                                    'My holiday',
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold),
+                                  ),
                                   Row(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
