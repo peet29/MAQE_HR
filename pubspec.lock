@@ -43,13 +43,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.15.0"
-  community_material_icon:
-    dependency: "direct dev"
-    description:
-      name: community_material_icon
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "5.9.55"
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -81,6 +74,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  font_awesome_flutter:
+    dependency: "direct dev"
+    description:
+      name: font_awesome_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "9.2.0"
   http:
     dependency: "direct dev"
     description:
