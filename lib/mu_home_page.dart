@@ -93,13 +93,19 @@ class _MyHomePageState extends State<MyHomePage> {
                                     children: [
                                       _showNumber(
                                           totalDay, Colors.black, 'Total'),
-                                      const SizedBox(
-                                        width: 10,
+                                      Container(
+                                        margin: const EdgeInsets.all(24.0),
+                                        height: 50,
+                                        color: Colors.grey,
+                                        width: 1,
                                       ),
                                       _showNumber(
                                           totalDayUsed, Colors.blue, 'Used'),
-                                      const SizedBox(
-                                        width: 10,
+                                      Container(
+                                        margin: const EdgeInsets.all(24.0),
+                                        height: 50,
+                                        color: Colors.grey,
+                                        width: 1,
                                       ),
                                       _showNumber(
                                           totalDayLeft, Colors.orange, 'Left'),
@@ -112,14 +118,40 @@ class _MyHomePageState extends State<MyHomePage> {
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       OutlinedButton.icon(
+                                        style: OutlinedButton.styleFrom(
+                                          backgroundColor: Colors.blue,
+                                          side: const BorderSide(
+                                              width: 1.0, color: Colors.blue),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                        ),
                                         onPressed: () {},
-                                        icon: const Icon(FontAwesomeIcons.plus),
-                                        label: const Text('Leave'),
+                                        icon: const Icon(
+                                          FontAwesomeIcons.plus,
+                                          size: 20,
+                                          color: Colors.white,
+                                        ),
+                                        label: const Text(
+                                          'Leave',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w400),
+                                        ),
                                       ),
                                       const SizedBox(
                                         width: 10,
                                       ),
                                       OutlinedButton.icon(
+                                        style: OutlinedButton.styleFrom(
+                                          side: const BorderSide(
+                                              width: 1.0, color: Colors.blue),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                        ),
                                         onPressed: () {},
                                         icon:
                                             const Icon(FontAwesomeIcons.random),
