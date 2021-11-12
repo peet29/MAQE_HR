@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:maqe_hr/data/leave_request.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -54,7 +55,16 @@ class _MyHomePageState extends State<MyHomePage> {
               final totalDay = jsonResponse['total_day'] ?? '';
               final totalDayLeft = jsonResponse['total_day_left'] ?? '';
               final totalDayUsed = jsonResponse['total_day_used'] ?? '';
-              double height = AppBar().preferredSize.height;
+              final double height = AppBar().preferredSize.height;
+              final List list = jsonResponse['leave_requests'] ?? [];
+              final List<LeaveRequest> leaveList = list
+                  .map((item) => LeaveRequest(
+                      item['status'],
+                      (item['request_list'] as List)
+                          .map((e) => RequestListItem(
+                              DateTime.parse(e['date']), e['type']))
+                          .toList()))
+                  .toList();
 
               return Stack(
                 children: [
