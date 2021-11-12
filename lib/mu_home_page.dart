@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:maqe_hr/data/leave_request.dart';
+import 'package:maqe_hr/widget/request_item.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -181,7 +182,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                   icon: const Icon(FontAwesomeIcons.calendar),
                                   label: const Text('Public holidays'))
                             ],
-                          )
+                          ),
+                          ...leaveList.map((e) {
+                            return RequestItem(
+                              request: e,
+                            );
+                          })
                         ],
                       ),
                     ),
