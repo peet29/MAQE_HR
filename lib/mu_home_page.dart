@@ -96,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       Container(
                                         margin: const EdgeInsets.all(24.0),
                                         height: 50,
-                                        color: Colors.grey,
+                                        color: Colors.grey[300],
                                         width: 1,
                                       ),
                                       _showNumber(
@@ -104,14 +104,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                       Container(
                                         margin: const EdgeInsets.all(24.0),
                                         height: 50,
-                                        color: Colors.grey,
+                                        color: Colors.grey[300],
                                         width: 1,
                                       ),
                                       _showNumber(
                                           totalDayLeft, Colors.orange, 'Left'),
-                                      const SizedBox(
-                                        width: 10,
-                                      ),
                                     ],
                                   ),
                                   Row(
