@@ -190,24 +190,46 @@ class _MyHomePageState extends State<MyHomePage> {
         fixedColor: Colors.blue,
         unselectedItemColor: Colors.black,
         currentIndex: 0,
-        items: const [
+        items: [
           BottomNavigationBarItem(
+            activeIcon: SizedBox(
+              width: 30,
+              child: Stack(
+                fit: StackFit.loose,
+                children: [
+                  const Icon(FontAwesomeIcons.home),
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: Container(
+                      height: 3,
+                      width: 3,
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.green,
+                          ),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(20))),
+                    ),
+                  )
+                ],
+              ),
+            ),
             label: '',
-            icon: Icon(FontAwesomeIcons.home),
+            icon: const Icon(FontAwesomeIcons.home),
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             label: '',
             icon: Icon(FontAwesomeIcons.calendar),
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             label: '',
             icon: Icon(FontAwesomeIcons.plus),
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             label: '',
             icon: Icon(FontAwesomeIcons.userFriends),
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             label: '',
             icon: Icon(FontAwesomeIcons.user),
           )
