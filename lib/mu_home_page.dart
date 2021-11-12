@@ -244,12 +244,12 @@ class _MyHomePageState extends State<MyHomePage> {
           BottomNavigationBarItem(
             label: '',
             icon: Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   color: Colors.blue,
                   borderRadius: BorderRadius.all(Radius.circular(8))),
               width: 30,
               height: 30,
-              child: Icon(
+              child: const Icon(
                 FontAwesomeIcons.plus,
                 color: Colors.white,
               ),
