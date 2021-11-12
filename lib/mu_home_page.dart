@@ -241,9 +241,19 @@ class _MyHomePageState extends State<MyHomePage> {
             label: '',
             icon: Icon(FontAwesomeIcons.calendar),
           ),
-          const BottomNavigationBarItem(
+          BottomNavigationBarItem(
             label: '',
-            icon: Icon(FontAwesomeIcons.plus),
+            icon: Container(
+              decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.all(Radius.circular(8))),
+              width: 30,
+              height: 30,
+              child: Icon(
+                FontAwesomeIcons.plus,
+                color: Colors.white,
+              ),
+            ),
           ),
           const BottomNavigationBarItem(
             label: '',
