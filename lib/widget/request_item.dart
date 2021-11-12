@@ -61,6 +61,9 @@ class RequestItem extends StatelessWidget {
     return Opacity(
       opacity: request.status == 'canceled' ? 0.5 : 1,
       child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15.0),
+        ),
         child: Container(
           width: double.infinity,
           padding: const EdgeInsets.all(16.0),
@@ -80,6 +83,11 @@ class RequestItem extends StatelessWidget {
                           : 'Switch',
                       style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
+                    ...request.requestList.reversed.fold<List<Widget>>([],
+                        (previousValue, element) {
+                      previousValue.add(Text('test'));
+                      return previousValue;
+                    })
                   ],
                 ),
               ),
