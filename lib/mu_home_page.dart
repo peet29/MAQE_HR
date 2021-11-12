@@ -40,141 +40,148 @@ class _MyHomePageState extends State<MyHomePage> {
         child: FutureBuilder(
           future:
               http.get(Uri.parse('https://maqe.github.io/json/holidays.json')),
-          builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+          builder:
+              (BuildContext context, AsyncSnapshot<http.Response> snapshot) {
             final response = snapshot.data;
 
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(child: CircularProgressIndicator());
             }
 
-            final jsonResponse =
-                jsonDecode(response.body) as Map<String, dynamic>;
-            final totalDay = jsonResponse['total_day'] ?? '';
-            final totalDayLeft = jsonResponse['total_day_left'] ?? '';
-            final totalDayUsed = jsonResponse['total_day_used'] ?? '';
-            double height = AppBar().preferredSize.height;
+            if (response != null && response.statusCode == 200) {
+              final jsonResponse =
+                  jsonDecode(response.body) as Map<String, dynamic>;
+              final totalDay = jsonResponse['total_day'] ?? '';
+              final totalDayLeft = jsonResponse['total_day_left'] ?? '';
+              final totalDayUsed = jsonResponse['total_day_used'] ?? '';
+              double height = AppBar().preferredSize.height;
 
-            return Stack(
-              children: [
-                Container(
-                  width: double.infinity,
-                  height: 150,
-                  color: const Color.fromARGB(100, 203, 236, 255),
-                ),
-                SingleChildScrollView(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: height,
-                        ),
-                        Card(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15.0),
+              return Stack(
+                children: [
+                  Container(
+                    width: double.infinity,
+                    height: 150,
+                    color: const Color.fromARGB(100, 203, 236, 255),
+                  ),
+                  SingleChildScrollView(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: height,
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(16.0),
-                            child: SizedBox(
-                              width: double.infinity,
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  const Text(
-                                    'My holiday',
-                                    style: TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      _showNumber(
-                                          totalDay, Colors.black, 'Total'),
-                                      Container(
-                                        margin: const EdgeInsets.all(24.0),
-                                        height: 50,
-                                        color: Colors.grey[300],
-                                        width: 1,
-                                      ),
-                                      _showNumber(
-                                          totalDayUsed, Colors.blue, 'Used'),
-                                      Container(
-                                        margin: const EdgeInsets.all(24.0),
-                                        height: 50,
-                                        color: Colors.grey[300],
-                                        width: 1,
-                                      ),
-                                      _showNumber(
-                                          totalDayLeft, Colors.orange, 'Left'),
-                                    ],
-                                  ),
-                                  Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      OutlinedButton.icon(
-                                        style: OutlinedButton.styleFrom(
-                                          backgroundColor: Colors.blue,
-                                          side: const BorderSide(
-                                              width: 1.0, color: Colors.blue),
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
+                          Card(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15.0),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(16.0),
+                              child: SizedBox(
+                                width: double.infinity,
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    const Text(
+                                      'My holiday',
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        _showNumber(
+                                            totalDay, Colors.black, 'Total'),
+                                        Container(
+                                          margin: const EdgeInsets.all(24.0),
+                                          height: 50,
+                                          color: Colors.grey[300],
+                                          width: 1,
+                                        ),
+                                        _showNumber(
+                                            totalDayUsed, Colors.blue, 'Used'),
+                                        Container(
+                                          margin: const EdgeInsets.all(24.0),
+                                          height: 50,
+                                          color: Colors.grey[300],
+                                          width: 1,
+                                        ),
+                                        _showNumber(totalDayLeft, Colors.orange,
+                                            'Left'),
+                                      ],
+                                    ),
+                                    Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        OutlinedButton.icon(
+                                          style: OutlinedButton.styleFrom(
+                                            backgroundColor: Colors.blue,
+                                            side: const BorderSide(
+                                                width: 1.0, color: Colors.blue),
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                          ),
+                                          onPressed: () {},
+                                          icon: const Icon(
+                                            FontAwesomeIcons.plus,
+                                            size: 20,
+                                            color: Colors.white,
+                                          ),
+                                          label: const Text(
+                                            'Leave',
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.w400),
                                           ),
                                         ),
-                                        onPressed: () {},
-                                        icon: const Icon(
-                                          FontAwesomeIcons.plus,
-                                          size: 20,
-                                          color: Colors.white,
+                                        const SizedBox(
+                                          width: 10,
                                         ),
-                                        label: const Text(
-                                          'Leave',
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.w400),
-                                        ),
-                                      ),
-                                      const SizedBox(
-                                        width: 10,
-                                      ),
-                                      OutlinedButton.icon(
-                                        style: OutlinedButton.styleFrom(
-                                          side: const BorderSide(
-                                              width: 1.0, color: Colors.blue),
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
+                                        OutlinedButton.icon(
+                                          style: OutlinedButton.styleFrom(
+                                            side: const BorderSide(
+                                                width: 1.0, color: Colors.blue),
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
                                           ),
-                                        ),
-                                        onPressed: () {},
-                                        icon:
-                                            const Icon(FontAwesomeIcons.random),
-                                        label: const Text('Leave'),
-                                      )
-                                    ],
-                                  )
-                                ],
+                                          onPressed: () {},
+                                          icon: const Icon(
+                                              FontAwesomeIcons.random),
+                                          label: const Text('Leave'),
+                                        )
+                                      ],
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                        Row(
-                          children: [
-                            const Expanded(child: Text('My request')),
-                            TextButton.icon(
-                                onPressed: () {},
-                                icon: const Icon(FontAwesomeIcons.calendar),
-                                label: const Text('Public holidays'))
-                          ],
-                        )
-                      ],
+                          Row(
+                            children: [
+                              const Expanded(child: Text('My request')),
+                              TextButton.icon(
+                                  onPressed: () {},
+                                  icon: const Icon(FontAwesomeIcons.calendar),
+                                  label: const Text('Public holidays'))
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              );
+            }
+
+            return const Center(
+              child: Text('Error'),
             );
           },
         ),
