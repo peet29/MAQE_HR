@@ -72,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Container(
                     width: double.infinity,
                     height: 150,
-                    color: const Color.fromARGB(100, 203, 236, 255),
+                    color: const Color.fromARGB(255, 203, 236, 255),
                   ),
                   SingleChildScrollView(
                     child: Padding(
@@ -113,7 +113,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                           width: 1,
                                         ),
                                         _showNumber(
-                                            totalDayUsed, Colors.blue, 'Used'),
+                                            totalDayUsed,
+                                            const Color.fromARGB(
+                                                255, 41, 173, 255),
+                                            'Used'),
                                         Container(
                                           margin: const EdgeInsets.all(24.0),
                                           height: 50,
@@ -131,7 +134,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                           style: OutlinedButton.styleFrom(
                                             backgroundColor: Colors.blue,
                                             side: const BorderSide(
-                                                width: 1.0, color: Colors.blue),
+                                              width: 1.0,
+                                              color: Color.fromARGB(
+                                                  255, 41, 173, 255),
+                                            ),
                                             shape: RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(8.0),
@@ -156,7 +162,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                         OutlinedButton.icon(
                                           style: OutlinedButton.styleFrom(
                                             side: const BorderSide(
-                                                width: 1.0, color: Colors.blue),
+                                              width: 1.0,
+                                              color: Color.fromARGB(
+                                                  255, 41, 173, 255),
+                                            ),
                                             shape: RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(8.0),
@@ -245,7 +254,7 @@ class _MyHomePageState extends State<MyHomePage> {
             label: '',
             icon: Container(
               decoration: const BoxDecoration(
-                  color: Colors.blue,
+                  color: Color.fromARGB(255, 41, 173, 255),
                   borderRadius: BorderRadius.all(Radius.circular(8))),
               width: 30,
               height: 30,
