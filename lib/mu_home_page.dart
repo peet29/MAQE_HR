@@ -179,7 +179,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                             color: Color.fromARGB(
                                                 255, 41, 173, 255),
                                           ),
-                                          label: const Text('Leave'),
+                                          label: const Text('Switch'),
                                         )
                                       ],
                                     )
