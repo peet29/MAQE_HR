@@ -185,7 +185,11 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                           Row(
                             children: [
-                              const Expanded(child: Text('My request')),
+                              const Expanded(
+                                  child: Text(
+                                'My request',
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              )),
                               TextButton.icon(
                                   onPressed: () {},
                                   icon: const Icon(FontAwesomeIcons.calendar),
@@ -216,9 +220,9 @@ class _MyHomePageState extends State<MyHomePage> {
         showUnselectedLabels: false,
         enableFeedback: false,
         type: BottomNavigationBarType.fixed,
-        fixedColor: Colors.blue,
         unselectedItemColor: Colors.black,
         currentIndex: 0,
+        selectedItemColor: const Color.fromARGB(255, 41, 173, 255),
         items: [
           BottomNavigationBarItem(
             activeIcon: SizedBox(
