@@ -132,7 +132,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                       children: [
                                         OutlinedButton.icon(
                                           style: OutlinedButton.styleFrom(
-                                            backgroundColor: Colors.blue,
+                                            backgroundColor:
+                                                const Color.fromARGB(
+                                                    255, 41, 173, 255),
                                             side: const BorderSide(
                                               width: 1.0,
                                               color: Color.fromARGB(
@@ -173,7 +175,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                           ),
                                           onPressed: () {},
                                           icon: const Icon(
-                                              FontAwesomeIcons.random),
+                                            FontAwesomeIcons.random,
+                                            color: Color.fromARGB(
+                                                255, 41, 173, 255),
+                                          ),
                                           label: const Text('Leave'),
                                         )
                                       ],
@@ -192,7 +197,10 @@ class _MyHomePageState extends State<MyHomePage> {
                               )),
                               TextButton.icon(
                                   onPressed: () {},
-                                  icon: const Icon(FontAwesomeIcons.calendar),
+                                  icon: const Icon(
+                                    FontAwesomeIcons.calendar,
+                                    color: Color.fromARGB(255, 41, 173, 255),
+                                  ),
                                   label: const Text('Public holidays'))
                             ],
                           ),
